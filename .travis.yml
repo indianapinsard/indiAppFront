@@ -1,10 +1,14 @@
 language: node_js
-python:
-  - "10.14.1"
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
 install:
   - npm install
 script:
   - npm test
+  - npm run build
 deploy:
   - provider: heroku
     api_key: $HEROKU_API_KEY
