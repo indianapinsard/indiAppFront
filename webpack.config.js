@@ -56,5 +56,6 @@ module.exports = {
       Globals: path.join(__dirname, 'src/shared/assets/globals'),
       Endpoint: path.join(__dirname, 'src/shared/assets/endpoint'),
     },
+    extensions: ['.js', '.jsx'],
   },
 };

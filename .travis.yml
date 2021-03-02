@@ -1,0 +1,22 @@
+language: node_js
+python:
+  - "10.14.1"
+install:
+  - npm install
+script:
+  - npm test
+deploy:
+  - provider: heroku
+    api_key: $HEROKU_API_KEY
+    buildpack: heroku/nodejs
+    app: staging-front-app
+    skip_cleanup: true
+    on:
+      branch: staging
+  - provider: heroku
+    api_key: $HEROKU_API_KEY
+    buildpack: heroku/nodejs
+    app: prod-front-app
+    skip_cleanup: true
+    on:
+      branch: master
