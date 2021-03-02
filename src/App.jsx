@@ -5,7 +5,7 @@ import React, { useState } from 'react';
  * @return {HTMLButtonElement} The html code for the button.
  */
 function App() {
-  const [state, setState] = useState('CLICK ME');
+  const [state, setState] = useState('CLICK ME NOW');
   return <button type="button" onClick={() => setState('CLICKED')}>{state}</button>;
 }
 
