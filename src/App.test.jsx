@@ -22,5 +22,5 @@ it('s’affiche avec ou sans nom', () => {
   act(() => {
     render(<App />, container);
   });
-  expect(container.querySelector('button').textContent).toBe('CLICK ME NOW');
+  expect(container.querySelector('button').textContent).toBe('CLICK ME');
 });
