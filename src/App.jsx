@@ -8,20 +8,19 @@ class App extends Component {
       label: 'CLICK ME',
       list: [],
     };
+    this.getDataFromApi = this.getDataFromApi.bind(this);
   }
 
   getDataFromApi() {
-    const API_ENDPOINT = (process.env.NODE_ENV === 'development')
+    const url = (process.env.NODE_ENV === 'development')
       ? 'http://127.0.0.1:8000/article-list/'
       : 'https://api.wattplanner.ovh/article-list/';
 
-    axios({
-      method: 'get',
-      url: API_ENDPOINT,
-    }).then((response) => {
-      this.setState({ list: response.data });
-      this.setState({ label: 'CLICKED' });
-    });
+    axios.get(url)
+      .then((response) => {
+        this.setState({ list: response.data });
+        this.setState({ label: 'CLICKED' });
+    })
   }
 
   render() {
