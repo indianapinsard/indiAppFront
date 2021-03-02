@@ -1,0 +1,8 @@
+# git hook (to manage differences betweens windows and unix)
+.git/hook/
+
+# Node modules folder
+node_modules/
+
+# Coverage folder
+coverage/
