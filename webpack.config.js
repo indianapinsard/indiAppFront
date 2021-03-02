@@ -4,56 +4,57 @@ const path = require('path');
 
 module.exports = {
 
-    entry: {
-        index: path.resolve(__dirname, 'src/index.js'),
-    },
+  entry: {
+    index: path.join(__dirname, 'src/index.jsx'),
+  },
 
-    output: {
-        path: __dirname + '/public',
-        filename: 'index.bundle.js',
-        publicPath: '/',
-    },
+  output: {
+    path: path.join(__dirname, 'dist/public'),
+    filename: 'index.bundle.js',
+    publicPath: '/public/',
+  },
 
-    module: {
-        rules: [
-        {
-            test: /\.html$/,
-            loader: 'html-loader'
-        },
-	    {
-            test: /\.js$/,
-            loader: 'babel-loader'
-        },
-        {
-            test : /\.css$/,
-            use: ['style-loader', 'css-loader']
-        },
-        {
-            test : /\.(gif|png|jpeg|webp|woff|woff2|eot|ttf|ttc|svg)$/,
-            use: 'file-loader',
-        }]
-    },
-
-    plugins: [
-        //new CleanWebpackPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(js|jsx)$/,
+        loader: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(gif|png|jpeg|webp|woff|woff2|eot|ttf|ttc|svg)$/,
+        use: 'file-loader',
+      },
     ],
+  },
 
-    devServer: {
-        contentBase: path.resolve(__dirname, 'public'),
-        hot: true,
-        open: true,
-        historyApiFallback : {
-            rewrites: [
-                { from: /^\//, to: '/index.html' },
-            ]
-        }
-    },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 
-    resolve: {
-        alias: {
-            Globals: path.resolve(__dirname, 'src/shared/assets/globals'),
-            Endpoint: path.resolve(__dirname, 'src/shared/assets/endpoint'),
-        }
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    hot: true,
+    open: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\//, to: '/index.html' },
+      ],
     },
-}
+  },
+
+  resolve: {
+    alias: {
+      Globals: path.join(__dirname, 'src/shared/assets/globals'),
+      Endpoint: path.join(__dirname, 'src/shared/assets/endpoint'),
+    },
+  },
+};
