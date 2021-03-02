@@ -9,7 +9,7 @@ module.exports = {
   },
 
   output: {
-    path: path.join(__dirname, 'dist/public'),
+    path: path.join(__dirname, 'build/public'),
     filename: 'index.bundle.js',
     publicPath: '/public/',
   },
@@ -41,7 +41,7 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'build'),
     hot: true,
     open: true,
     historyApiFallback: {
