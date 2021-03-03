@@ -22,5 +22,5 @@ it('s’affiche avec ou sans nom', () => {
   act(() => {
     render(<Home />, container);
   });
-  expect(container.querySelector('button').textContent).toBe('CLICK ME');
+  expect(container.querySelector('button').textContent).toBe('Récupérer les liens');
 });
