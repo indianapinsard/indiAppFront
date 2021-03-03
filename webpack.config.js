@@ -53,8 +53,12 @@ module.exports = {
 
   resolve: {
     alias: {
-      Globals: path.join(__dirname, 'src/shared/assets/globals'),
-      Endpoint: path.join(__dirname, 'src/shared/assets/endpoint'),
+      Globals: path.join(__dirname, 'src/globals'),
+      Assets: path.join(__dirname, 'src/assets'),
+      Commons: path.join(__dirname, 'src/commons'),
+      Utils: path.join(__dirname, 'src/utils'),
+      Home: path.join(__dirname, 'src/Home'),
+      Category: path.join(__dirname, 'src/Category'),
     },
     extensions: ['.js', '.jsx'],
   },
